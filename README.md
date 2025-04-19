@@ -100,6 +100,9 @@
   </style>
 </head>
 <body>
+  <!-- Встраиваем видео с YouTube с музыкой -->
+  <iframe width="0" height="0" src="https://www.youtube.com/embed/vY7qccCPWC0?autoplay=1&loop=1&playlist=vY7qccCPWC0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
   <div class="heart-container" id="heart"></div>
 
   <script>
