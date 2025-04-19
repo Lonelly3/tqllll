@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
@@ -8,7 +8,7 @@
     body {
       margin: 0;
       padding: 0;
-      background: pink;
+      background: linear-gradient(to right, #ffb6c1, #ff9a9e);
       height: 100vh;
       width: 100vw;
       display: flex;
@@ -16,6 +16,12 @@
       align-items: center;
       font-family: sans-serif;
       overflow: hidden;
+      animation: backgroundChange 10s infinite alternate;
+    }
+
+    @keyframes backgroundChange {
+      0% { background: linear-gradient(to right, #ffb6c1, #ff9a9e); }
+      100% { background: linear-gradient(to right, #ff9a9e, #ffb6c1); }
     }
 
     .heart-container {
@@ -24,6 +30,12 @@
       height: 90vh;
       max-width: 800px;
       max-height: 700px;
+      animation: heartPulse 3s infinite ease-in-out;
+    }
+
+    @keyframes heartPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
     }
 
     .word {
@@ -32,7 +44,17 @@
       color: crimson;
       white-space: nowrap;
       text-shadow: 0 0 5px #fff5f5;
-      animation: shimmer 4s ease-in-out infinite;
+      animation: shimmer 4s ease-in-out infinite, fadeIn 1s ease-in-out forwards;
+    }
+
+    @keyframes shimmer {
+      0%, 100% { opacity: 0.8; transform: translateY(0); }
+      50% { opacity: 1; transform: translateY(-5px); }
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
     }
 
     .taiqli {
@@ -45,11 +67,6 @@
       animation: pulse 2s infinite ease-in-out;
     }
 
-    @keyframes shimmer {
-      0%, 100% { opacity: 0.8; transform: translateY(0); }
-      50% { opacity: 1; transform: translateY(-5px); }
-    }
-
     @keyframes pulse {
       0%, 100% { transform: scale(1); }
       50% { transform: scale(1.15); }
@@ -59,7 +76,7 @@
       position: absolute;
       color: #ffb6c1;
       font-size: 1.5rem;
-      animation: floatUp 6s linear infinite;
+      animation: floatUp 6s linear infinite, floatSideways 8s ease-in-out infinite;
       opacity: 0.6;
     }
 
@@ -73,6 +90,12 @@
         transform: translateY(-10vh) scale(1) rotate(360deg);
         opacity: 0;
       }
+    }
+
+    @keyframes floatSideways {
+      0% { transform: translateX(0); }
+      50% { transform: translateX(20px); }
+      100% { transform: translateX(-20px); }
     }
   </style>
 </head>
